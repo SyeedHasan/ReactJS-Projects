@@ -1,0 +1,39 @@
+html {
+  font-family: 'Century Gothic';
+  /* background: #ffc600; */
+  background: #2F3543;
+  color: black;
+  
+}
+
+body {
+  font-family: 'Century Gothic';
+}
+
+input:checked+p {
+  background: #F9F9F9;
+  text-decoration: line-through;
+}
+
+input[type="checkbox"] {
+  margin: 20px;
+}
+
+
+input,
+input:focus,
+input:active {
+  font-family: 'Century Gothic', sans-serif;
+  border: none;
+  border-bottom: 1px;
+  outline: none;
+  font-size: 17px;
+  background-color: transparent;
+}
+
+
+.Credits {
+  color: whitesmoke;
+  font-size: 10px;
+  text-align: center;
+}

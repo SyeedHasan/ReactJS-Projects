@@ -1,0 +1,61 @@
+.InpElement {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #F1F1F1;
+}
+
+.InpElement:last-child {
+    border-bottom: 0;
+}
+
+.InpElement input {
+    margin: 20px;
+    width: 100%;
+    height: 20px;
+}
+
+.InpElement input[placeholder] {
+    font-size: 17px;
+}
+
+.AddToDo {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #F1F1F1;
+}
+
+.AddToDo:last-child {
+    border-bottom: 0;
+}
+
+.Button {
+    margin: 10px auto;
+    padding: 10px 10px;
+    display: inline;
+    background: #777 repeat-x bottom;
+    border: none;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+    width: 80%;
+    font-family: 'Century Gothic', sans-serif;
+    text-align: center;
+    /* font-weight: bold; */
+    font-size:15px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    background-color: #2c6da0;
+    text-shadow: 1px 1px #666;
+}
+
+.Button:hover {
+    background-position: 0 -48px;
+}
+
+.Button:active {
+    background-position: 0 top;
+    position: relative;
+    top: 1px;
+    padding: 6px 10px 4px;
+}

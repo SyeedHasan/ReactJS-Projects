@@ -1,0 +1,21 @@
+.ToDo {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #F1F1F1;
+}
+
+.ToDo:last-child {
+    border-bottom: 0;
+}
+
+.ToDo p,
+.ToDo input {
+  margin: 0;
+  padding: 20px;
+  transition: background 0.2s;
+  flex: 1;
+  font-family: 'Century Gothic';
+  font-size: 17px;
+  font-weight: 200;
+  border-left: 1px solid #D1E2FF;
+}
