@@ -5,6 +5,7 @@ import { InputButton } from '../../components/Input/InputButton';
 import { ClearButton } from '../../components/ClearButton/ClearButton';
 import * as math from 'mathjs';
 import  './Calculator.css';
+import { empty } from 'rxjs';
 
 class Calculator extends Component {
 
@@ -14,6 +15,23 @@ class Calculator extends Component {
             input: ''
         }
         this.inputClearHandler = this.inputClearHandler.bind(this);
+        this.keycodes = {
+            '48': '0',
+            '49': '1',
+            '50': '2',
+            '51': '3',
+            '52': '4',
+            '53': '5',
+            '54': '6',
+            '55': '7',
+            '56': '8',
+            '57': '9',
+            '187': '+',
+            '189': '-',
+            '191': '/',
+            '88': 'X',
+            '13': '='
+        }
     }
 
     inputClearHandler() {
@@ -35,26 +53,45 @@ class Calculator extends Component {
     }
 
     handleKeyInput = (event) => {
-        console.log(event.charCode);
+        const keyCode = event.keyCode;
+        if(this.keycodes[keyCode]){
+            let key = this.keycodes[event.keyCode];
+            if(keyCode == "13")
+                this.handleEqual();
+            else 
+                this.addToInput(key);
+        }
+        // console.log(keyCode);
+
     }
 
+    componentDidMount() {
+        document.addEventListener("keydown", this.handleKeyInput, false);
+    }
+
+    componentWillUnmount(){
+        document.removeEventListener("keydown", this.handleKeyInput, false);
+      }
+
     handleEqual = () => {
-        if(isNaN(this.state.input[this.state.input.length-1])){
-            this.setState( (state, props) => ({
-                input: "Math Error"
-            }));
-            setTimeout(this.inputClearHandler, 1000);
-        }
-        else {
-            this.setState( (state, props) => ({
-                input: math.eval(state.input)
-            }));
+        if(this.state.input){
+            if(isNaN(this.state.input[this.state.input.length-1])){
+                this.setState( (state, props) => ({
+                    input: "Math Error"
+                }));
+                setTimeout(this.inputClearHandler, 1000);
+            }
+            else {
+                this.setState( (state, props) => ({
+                    input: math.eval(state.input)
+                }));
+            }
         }
     }
 
     render(){
         return (
-            <div className="Calculator" onKeyDown={() => this.handleKeyInput()}>
+            <div className="Calculator">
                 <div className="calc-wrapper">
                     <InputButton input={this.state.input}></InputButton>
                     <div className="row">
