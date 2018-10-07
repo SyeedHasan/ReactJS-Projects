@@ -5,7 +5,6 @@ import { InputButton } from '../../components/Input/InputButton';
 import { ClearButton } from '../../components/ClearButton/ClearButton';
 import * as math from 'mathjs';
 import  './Calculator.css';
-import { empty } from 'rxjs';
 
 class Calculator extends Component {
 
@@ -61,7 +60,6 @@ class Calculator extends Component {
             else 
                 this.addToInput(key);
         }
-        // console.log(keyCode);
 
     }
 
